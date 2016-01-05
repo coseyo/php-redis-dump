@@ -4,6 +4,8 @@ if (!extension_loaded('redis')) {
     die("redis extension not loaded\n");
 };
 
+set_time_limit(0);
+
 $opt = getopt('h:p:s:n:');
 
 $host = isset($opt['h']) ? $opt['h'] : '127.0.0.1';
