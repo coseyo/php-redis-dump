@@ -23,7 +23,7 @@ try {
 foreach ($redis->keys('*') as $key) {
     $ttl = $redis->ttl($key);
     $value = bin2hex($redis->dump($key));
-    printf("%s %d %s\n", $key, $ttl > 0 ? $ttl : 0, $value);
+    printf("%s %d %s\n", $key, $ttl > 0 ? ($ttl*1000) : 0, $value);
 };
 
 $redis->close();
